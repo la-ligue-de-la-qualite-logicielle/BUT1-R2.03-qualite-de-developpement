@@ -372,7 +372,7 @@
             </p>
             <p class="fragment fade-up" style="font-size: 60%">
               🤫 disclaimer: on verra pendant le TP qu'il est plus difficile de
-              mettre en place des tests sur du code écrit que d'écrire les test
+              mettre en place des tests sur du code écrit que d'écrire les tests
               puis de coder.
             </p>
           </section>
@@ -407,14 +407,29 @@
           <section data-background-color="black">
             <h2>Tests Unitaires</h2>
             <h3>Mise en pratique</h3>
+            <h3>TP1</h3>
           </section>
           <section data-background-color="black">
-            <h2>Mise en pratique en</h2>
+            <h2>Mise en pratique</h2>
             <ul>
               <li>Javascript (NodeJS)</li>
               <li>Typescript (Deno)</li>
               <li>Php</li>
             </ul>
+            <aside class="notes">
+              <p>
+                NodeJS est né en 2009, il est basé sur le moteur javascript V8 de Google.
+              </p>
+              <p>
+                Deno date de 2018, il est basé lui aussi sur le moteur javascript V8 de Google.
+                La plus grosse différence est que Deno propose 2 choses qui n'existaient pas dans NodeJS et qui nous intéressent au sujet des tests unitaires:
+                <ul>
+                  <li>Typescript, créé par Microsoft en 2012, comme surcouche ajoutant un système puissant de typage. Bien typer demande peu d'efforts par rapport aux bénéfices en retour qui sont d'avoir d'une part moins de code défensif à écrire et d'autre part moins de cas de tests à écrire.</li>
+                  <li>Un système de tests intégrés (on va le voir dans l'exercice 2 du TP 1).</li>
+                </ul>
+                Deno et NodeJS ont le même créateur, <a href="https://youtu.be/M3BM9TB-8yA">Ryan Dahl - qui explique dans cette vidéo pourquoi il a créé Deno</a>.
+              </p>
+            </aside>
           </section>
           <section data-background-color="black">
             <h2>I need you</h2>
@@ -423,11 +438,67 @@
               je vous invite sur le dépôt du TP.
             </p>
           </section>
+          <section data-background-color="black">
+            <h2>TP1</h2>
+            <h3>Ce qu'il faut retenir</h3>
+          </section>
+          <section data-background-color="black">
+            <h2 class="r-fit-text">TP1 - Ce qu'il faut retenir : exercices 1 à 3</h2>
+            <p>Se familiariser concrètement avec les outils, sur un test bidon.</p>
+            <ol class="r-fit-text">
+              <li class="fragment fade-up">Je sais lire la doc : mettre en place (ou corriger la mise en place) des TU dans 3 langages.</li>
+              <li class="fragment fade-up">Je sais lancer des tests : faire tourner et échouer des TU.</li>
+              <li class="fragment fade-up">Je développe mon esprit critique : apprécier les différences d'implémentation selon les langages/technos.</li>
+            </ol>
+          </section>
+          <section data-background-color="black">
+            <h2 class="r-fit-text">TP1 - Ce qu'il faut retenir : exercice 4</h2>
+            <p>Découverte du TDD sur des cas de tests déjà écrits.</p>
+            <ol>
+              <li class="fragment fade-up">Je sais concevoir/implémenter en me servant des TU comme guide.</li>
+              <li class="fragment fade-up">Je découvre la liberté et la sécurité de remanier (refactoring) mon implémentation grâce aux tests.</li>
+              <li class="fragment fade-up">J'ai un regard critique sur les TU proposés : dernier cas de test inutile car pas de participants, pas de podium!</li>
+            </ol>
+          </section>
+          <section data-background-color="black">
+            <h2 class="r-fit-text">TP1 - Ce qu'il faut retenir : exercice 5</h2>
+            <p>Je me sers des TU pour corriger un bug.</p>
+            <p>Sur un algorithme totalement inconnu, y compris une fois que j'ai corrigé ce bug.</p>
+            <p>Il a suffit de :</p>
+            <ol>
+              <li>Identifier en lançant les tests lequel des 2 algorithmes avait un bug (ROT13).</li>
+              <li>Chercher une implémentation sur internet et la substituer à celle qui était écrite pour faire passer la suite de tests.</li>
+            </ol>
+          </section>
+          <section data-background-color="black">
+            <h2 class="r-fit-text">TP1 - Ce qu'il faut retenir : exercice 6</h2>
+            <p>Je sais faire évoluer une fonctionnalité.</p>
+            <p>Elle était converte par les tests, mais il fallait désormais que l'application aie le comportement contraire de celui implémenté et testé.</p>
+          </section>
         </section>
         <section>
           <section data-background-color="black">
             <h2>Tests Unitaires</h2>
             <h3>Couverture de code</h3>
+          </section>
+          <section data-background="./images/alexandra-gorn-smuS_jUZa9I-unsplash.jpg"></section>
+          <section data-background-color="black">
+            <h2>Couverture de code</h2>
+            <p>Les outils de test unitaire peuvent générer des <strong>rapports</strong>.</p>
+            <p>Ceux qui expliquent quelles portions de code sont couvertes ou non par les tests s'appellent la couverture de code ou <strong>code coverage</strong>.</p>
+          </section>
+          <section data-background-color="black">
+            <h2>Couverture de code</h2>
+            <h3>Exemple concret en Java</h3>
+            <p>TP2 - Exercice 1 : en Java 11 Junit 5 avec le plugin JaCoCo</p>
+          </section>
+          <section data-background-color="black">
+            <h2>Couverture de code</h2>
+            <h3 class="r-fit-text">100% de couverture n'est pas un graal, parce que :</h3>
+            <ul>
+              <li class="fragment fade-up">Vous pouvez avoir des tests qui ne testent rien ou des choses inutiles.</li>
+              <li class="fragment fade-up">Avec l'expérience, vous apprendrez et maîtriserez <a href="https://martinfowler.com/bliki/TestPyramid.html">la pyramide des tests</a> : les types de test doivent se compléter. Il faut parfois laisser les tests d'intégration couvrir une partie non couverte en unitaire, <strong>avec discernement</strong>.</li>
+            </ul>
           </section>
         </section>
         <section>
@@ -435,17 +506,163 @@
             <h2>Tests Unitaires</h2>
             <h3>Gestion du contexte</h3>
           </section>
+          <section data-background-color="black">
+            <h2>Gestion du contexte</h2>
+            <p>Parfois vous avez du code répétitif dans vos suites de test</p>
+            <p>Les outils de test unitaire fournissent des "hooks" permettant de <strong>s'accrocher au cycle de vie</strong> d'une suite de test ET d'un cas de test.</p>
+          </section>
+          <section data-background-color="black">
+            <h2>Gestion du contexte</h2>
+            <h3>Hooks</h3>
+            <table class="r-fit-text">
+              <thead>
+                <tr>
+                  <th>Hook</th>
+                  <th>Exécution</th>
+                  <th>Utilisation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>BeforeAll</td>
+                  <td>Une seule fois, avant le premier test</td>
+                  <td>Initialisation du contexte</td>
+                </tr>
+                <tr>
+                  <td>BeforeEach</td>
+                  <td>Au début de chaque test</td>
+                  <td>Initialisation du contexte</td>
+                </tr>
+                <tr>
+                  <td>AfterEach</td>
+                  <td>A la fin de chaque test</td>
+                  <td>Nettoyage du contexte</td>
+                </tr>
+                <tr>
+                  <td>AfterAll</td>
+                  <td>Une seule fois, après le dernier test</td>
+                  <td>Nettoyage du contexte</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section data-background-color="black">
+            <h2>Gestion du contexte</h2>
+            <h3>Exemple concret en Java</h3>
+            <p>TP2 - Exercice 2 : en Java 11 Junit 5</p>
+          </section>
+          <section data-background-color="black">
+            <h2>Gestion du contexte</h2>
+            <h3>Ce qu'il faut retenir</h3>
+            <p>Il existe avec junit tout un tas d'autres <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations">annotations autour du contexte (@Nested, @Disabled, ...).</a></p>
+            <p class="r-fit-text">👉 Les seuls éléments de contexte véritablement universels entre les moteurs de tests unitaires de tous les langages sont ceux que nous avons vu. Les autres sont spécifiques et relèvent de votre montée en expertise sur un moteur donné.</p>
+          </section>
         </section>
         <section>
           <section data-background-color="black">
             <h2>Tests Unitaires</h2>
             <h3>Les mocks</h3>
           </section>
+          <section data-background-color="black">
+            <h2>Les mocks</h2>
+            <p>Vous avons vu comment tester des classes simples.</p>
+            <p>Maintenant, imaginez devoir tester une classe <strong>A</strong> qui a besoin pour exister d'être instanciée avec une classe <strong>B</strong>.</p>
+          </section>
+          <section data-background-color="black">
+            <h2>Les mocks</h2>
+            <h3 style="text-transform: inherit;">instanceOfA = new A(B)</h3>
+            <p>👉 Vous avez déjà testé la classe B à part.</p>
+            <p>Si vous utilisez une implémentation concrète de B dans A, lorsque vous changerez B les tests de A casseront très souvent pour rien 🤯.</p>
+          </section>
+          <section data-background-color="black">
+            <h2>Les mocks</h2>
+            <h3 style="text-transform: inherit;">instanceOfA = new A(B)</h3>
+            <p>
+              💡 Vous pouvez <strong>"mocker"</strong> B dans A.
+            </p>
+            <p>
+              Afin de tester A, vous allez créer une classe <strong>MockB</strong> qui implémente (ce dont vous avez besoin uniquement) de <strong>l'interface</strong> de B.
+            </p>
+          </section>
+          <section data-background-color="black">
+            <h2>Les mocks</h2>
+            <h3>Exemple concret en Java</h3>
+            <p>TP2 - Exercice 3 : en Java 11 Junit 5</p>
+          </section>
+          <section data-background-color="black">
+            <h2>Les mocks</h2>
+            <h3>Ce qu'il faut retenir</h3>
+            <p class="r-fit-text">Un mock permet de <strong>simuler le comportement d'une dépendance</strong> :</p>
+            <ul>
+              <li>Afin de garantir <strong>l'isolation</strong> des pièces de code testées (on ne teste pas en double)</li>
+              <li>En poussant à la mise en place de bonnes pratiques (ex: définition d'un contrat via une <strong>interface</strong>)</li>
+          </section>
         </section>
         <section>
           <section data-background-color="black">
             <h2>Tests Unitaires</h2>
             <h3>Les problèmes des tests</h3>
+          </section>
+          <section data-background-color="black">
+            <h2>Les problèmes des tests</h2>
+            <ol class="r-fit-text">
+              <li>Il est facile d'écrire un test "en bois".</li>
+              <li>Un test reste du code et donc peut lui aussi avoir des bugs.</li>
+              <li>Couvrir les 100% des cas noie le sens de ce que vous testez.</li>
+              <li>Parfois avec des dépendances on a besoin de savoir si et comment elles sont appelées.</li>
+              <li>Des entrées statiques sur des cas de test ne sont pas toujours satisfaisantes pour couvrir le cas.</li>
+              <li>Mal nommer nos cas/méthodes de test rend nos tests incompréhensibles.</li>
+            </ol>
+          </section>
+          <section data-background-color="black">
+            <h2>Les problèmes des tests</h2>
+            <h3>Solutions</h3>
+            <ol class="r-fit-text">
+              <li>Pour éviter le test "en bois", penser given/when/then, ça doit raconter une histoie et être très lisible.</li>
+              <li>Pour éviter les bugs dans le test, effectuer du pair programming et de la revue de code avec un pair.</li>
+              <li>Couvrir uniquement les cas qui ont un sens, non au code défensif et aux cas de tests hors du périmètre fonctionel.</li>
+              <li>Les tests en boîte blanche permettent de prophétiser notamment sur les dépendances (si appelées, combien de fois, ...).</li>
+              <li>Il existe des libs fakers dans à peu près tous les langages afin de mettre de l'aléatoire dans vos fixtures (jeux de données).</li>
+              <li>TDD favorisera toujours de bien nommer ses cas de test vu que c'est la transcription de l'énnoncé.</li>
+            </ol>
+          </section>
+          <section data-background-color="black">
+            <h2>Les problèmes des tests</h2>
+            <h3>Ce qu'il faut retenir</h3>
+            <p>
+              Les tests unitaires et plus particulièrement le TDD nous guident dans la conception d'un code
+              propre qui correspond au juste besoin en nous poussant très tôt à valider ce besoin auprès des
+              interlocuteurs métier.
+            </p>
+          </section>
+          <section data-background-color="black">
+            <h2>Les problèmes des tests</h2>
+            <h3>Ce qu'il faut retenir</h3>
+            <p>Tester c'est donner du sens lorsqu'on conçoit.</p>
+          </section>
+          <section data-background-color="black">
+            <h2>Les problèmes des tests</h2>
+            <h3>Ce qu'il faut retenir</h3>
+            <p>Tester c'est avoir confiance lorsqu'on déploie.</p>
+          </section>
+          <section data-background-color="black">
+            <h2>Les problèmes des tests</h2>
+            <h3>Ce qu'il faut retenir</h3>
+            <p>Tester c'est se donner la liberté de remanier notre code avec des garanties.</p>
+          </section>
+          <section
+            data-background="black"
+            data-auto-animate
+            data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"
+          >
+            <img style="height: 80vh" src="./images/Eha7r9KWsAIoXDr.jpeg" />
+          </section>
+          <section
+            data-background="black"
+            data-auto-animate
+            data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"
+          >
+            <img src="./images/DyvJLydX4AAUkmB.jpeg" />
           </section>
         </section>
       </div>
